@@ -1,0 +1,11 @@
+extends base.pug
+block style 
+    style
+        include ../static/style.css
+        include ../static/aboutstyle.css
+block content
+    div.login
+        h1  Welcome to the community.
+block scripts 
+    script(src='/static/index.js')
+    script(src='/static/loginsuccess.js')

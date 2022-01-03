@@ -1,0 +1,18 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/contributestyle.css
+block content 
+    div.bucket
+        h1 Contribute
+        form(action="/contribute", method="post", id="myform")
+            input(type="text", class="input", name="name", placeholder="Enter your name")
+            input(type="email", class="input", name="email", placeholder="Enter your email")
+            input(type="text", class="input", name="topic", placeholder="Topic")
+
+            textarea(placeholder='Enter the source code', name="code", cols="30", rows="10", form="myform", class="mycode") 
+            button(class="btn") 
+                | Submit

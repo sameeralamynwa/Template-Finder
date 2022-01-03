@@ -1,0 +1,47 @@
+h1{
+    text-align: center;
+    margin: 25px auto;
+}
+
+h2 {
+    text-align: center;
+    margin: 25px;
+    margin-left: 530px;
+}
+
+.container p{
+    text-align: center;
+    font-size: 23px;
+    color: white;
+}
+
+.container {
+    background-color: #231c23;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid black;
+    margin-left: 365px;
+    padding: 50px;
+    margin-bottom: 200px;
+    margin-top: 40px;
+}
+
+.connect{
+    display: flex;
+    align-items: center;
+    margin-right: 45px;
+    margin-bottom: 30px;
+}
+
+#linkedin{
+    margin-right: 225px;
+    height: 45px;
+}
+
+#linkedin{
+    margin-right: 25px;
+    height: 45px;
+}
+

@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1{
+    font-size: 28px;
+    text-align: center;
+    margin: 25px auto;
+}
+
+#navbar {
+    margin: 7px;
+    background-color: rgb(255, 255, 255);
+    height: 50px;
+    padding: 3px 54px;
+    display: flex;
+    width: 1300px;
+}
+
+#navbar li a:hover{
+    color: rgb(49, 2, 49);
+}
+
+#navbar li{
+    list-style: none;
+    padding-right: 50px;
+}
+
+#navbar ul{
+    width: 40%;
+    display: flex;
+    padding-top: 10px;
+}
+
+#logo{
+    display: flex;
+    color: white;
+    align-items: center;
+    padding: 10px 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo img{
+    height: 32px;
+}
+
+#navbar li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 20px;
+    padding-bottom: 12px;
+}
+
+#introsection{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    height: 725px;
+    background: center / cover no-repeat url("/static/bg.jpg");
+    font-size: 25px;
+    background-color: #231c23;
+;
+}
+
+div#first {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 600px;
+}
+
+div#second {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.introclass{
+    width: 80%;
+}
+
+#below{
+    background-color: white;
+    margin: 35px;
+}
+
+#fourth {
+    padding-right: 460px;
+}
+
+#fifth{
+    padding-right: 530px;
+}
+
+#memberssection{
+    height: 150px;
+}
+
+.connect{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer, #looter{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: #231c23;
+    color: white;
+}
+
+#membersection h2{
+    height: 85px; 
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+#membersection h2{
+    color: white;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 20px;
+    background-color: #231c23;
+}
+
+.card{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 30%;
+    margin: 23px 20px;
+    height: 209px;
+    background-color: white;
+}
+.card h3{
+    text-align: center;
+    margin: 0 12px;
+    margin-top: 18px;
+    padding-bottom: 11px;
+}
+
+.card-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-img{
+    height: 131px;
+    padding: 0 14px;
+    margin: 5px 9px;
+}
+
+.card-img img{
+    height: inherit; 
+}
+
+.card-content{
+    padding: 0 10px;
+}
+
+.card-content p{
+    font-size: 17px;
+    font-family: cursive;
+}
+
+.container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #231c23;
+    margin-left: 365px;
+    padding: 30px;
+    margin-bottom: 400px;
+    margin-top: 50px;
+}
+
+.container li a{
+    text-decoration: none;
+}
+
+#mysearchinput {
+    margin-bottom: 15px;
+    font-size: 20px;
+    border: 2px solid black;
+    width: 350px;
+    height: 35px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.all{
+    display: flex;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    color: black;
+    font-weight: 550;
+    line-height: 3;
+}
+
+ul{
+    list-style: none;
+}
+
+.register {
+    margin-left: 500px;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+}
+
+.logged{
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0px 150px;
+}
+
+.logged li a{
+    width: 200px;
+    /* margin-left: 700px; */
+}
+
+#items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#items li a{
+    display: block;
+    text-decoration: none;
+    margin: 12px;
+}
+
+/* Codes */
+
+pre {
+    font-family: monospace;
+    white-space: pre;
+    margin-left: 50px;
+    font-weight: bolder;
+    border-radius: 10px;
+    border-color: black;
+    margin-bottom: 40px;
+}
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.code-toolbar {
+    position: relative;
+    justify-content: center;
+}
+
+.code-toolbar pre{
+    padding: 10px;
+    justify-content: center;
+    background-color: #231c23;
+    width: 65%;
+    margin: 50px auto;
+    border-color: #231c23;
+    border: solid;
+    border-radius: 25px;
+}

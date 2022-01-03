@@ -1,0 +1,12 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/aboutstyle.css
+block content
+    div.wholesuccess
+        h1  Contribution Successful
+        div.container 
+            p   <i> <strong>Thank you </strong> </i> so much for your contribution, our team panel will soon review your code and get back to you at the earliest.
