@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manacher's Algorithm</title>
+</head>
+<body>
+    <pre style='color:#000000;background:#ffffff;'><span style='color:#7f0055; '>	</span><span style='color:#7f0055; '>#</span><span style='color:#7f0055; '>include </span><span style='color:#2a00ff; '>&lt;</span><span style='color:#3f3fbf; '>bits/stdc++.h</span><span style='color:#2a00ff; '>></span>
+				
+        <span style='color:#7f0055; font-weight:bold; '>using</span> <span style='color:#7f0055; font-weight:bold; '>namespace</span> std;
+        
+        <span style='color:#7f0055; font-weight:bold; '>void</span> manacher(<span style='color:#7f0055; font-weight:bold; '>string</span> s){
+            <span style='color:#7f0055; font-weight:bold; '>int</span> n = s.size();
+            <span style='color:#7f0055; font-weight:bold; '>vector</span>&lt;<span style='color:#7f0055; font-weight:bold; '>int</span>> d1(n), d2(n);
+            <span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0, l = 0, r = -1; i &lt; n; i++) {
+                <span style='color:#7f0055; font-weight:bold; '>int</span> k = (i > r) ? 1 : <span style='color:#7f0055; font-weight:bold; '>min</span>(d1[l + r - i], r - i + 1);
+                <span style='color:#7f0055; font-weight:bold; '>while</span> (0 &lt;= i - k &amp;&amp; i + k &lt; n &amp;&amp; s[i - k] == s[i + k]) {
+                    k++;
+                }
+                d1[i] = k--;
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (i + k > r) {
+                    l = i - k;
+                    r = i + k;
+                }
+            }
+            
+            <span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0, l = 0, r = -1; i &lt; n; i++) {
+                <span style='color:#7f0055; font-weight:bold; '>int</span> k = (i > r) ? 0 : <span style='color:#7f0055; font-weight:bold; '>min</span>(d2[l + r - i + 1], r - i + 1);
+                <span style='color:#7f0055; font-weight:bold; '>while</span> (0 &lt;= i - k - 1 &amp;&amp; i + k &lt; n &amp;&amp; s[i - k - 1] == s[i + k]) {
+                    k++;
+                }
+                d2[i] = k--;
+                <span style='color:#7f0055; font-weight:bold; '>if</span> (i + k > r) {
+                    l = i - k - 1;
+                    r = i + k ;
+                }
+            }
+        }
+        
+        <span style='color:#7f0055; font-weight:bold; '>void</span> solve(<span style='color:#7f0055; font-weight:bold; '>void</span>){
+            
+        }
+        
+        <span style='color:#7f0055; font-weight:bold; '>signed</span> <span style='color:#7f0055; font-weight:bold; '>main</span>() {
+        fio;
+        <span style='color:#7f0055; font-weight:bold; '>int</span> t = 1;
+        <span style='color:#7f0055; font-weight:bold; '>cin</span> >> t;
+        <span style='color:#7f0055; font-weight:bold; '>while</span>(t--){
+            solve();
+        }	
+        
+            <span style='color:#7f0055; font-weight:bold; '>return</span> 0;
+        }
+</pre>
+<!--Created using ToHtml.com on 2021-02-15 21:19:11 UTC -->
+</body>
+</html>
+
+<ol>
+    <li>
+        lo
+    </li>
+</ol>

@@ -1,0 +1,149 @@
+<div class="code-toolbar">
+<pre style='color:#000000;background:#ffffff;'>	<span style='color:#7f0055; font-weight:bold; '>vector</span>&lt;<span style='color:#7f0055; font-weight:bold; '>int</span>> parent, tank;
+
+	<span style='color:#7f0055; font-weight:bold; '>void</span> make_set(<span style='color:#7f0055; font-weight:bold; '>int</span> v) {
+		
+	    parent[v] = v;
+	    
+	    tank[v] = 0;
+	    
+	}
+	
+	<span style='color:#7f0055; font-weight:bold; '>int</span> find_set(<span style='color:#7f0055; font-weight:bold; '>int</span> v) {
+		
+	    <span style='color:#7f0055; font-weight:bold; '>if</span> (v == parent[v]) {
+	    	
+	        <span style='color:#7f0055; font-weight:bold; '>return</span> v;
+	        
+	    }
+	    
+	    <span style='color:#7f0055; font-weight:bold; '>return</span> parent[v] = find_set(parent[v]);
+	}
+	
+	<span style='color:#7f0055; font-weight:bold; '>void</span> union_sets(<span style='color:#7f0055; font-weight:bold; '>int</span> a, <span style='color:#7f0055; font-weight:bold; '>int</span> b) {
+		
+	    a = find_set(a);
+	    
+	    b = find_set(b);
+	    
+	    <span style='color:#7f0055; font-weight:bold; '>if</span> (a != b) {
+	    	
+	        <span style='color:#7f0055; font-weight:bold; '>if</span> (tank[a] &lt; tank[b]) {
+	        	
+	            <span style='color:#7f0055; font-weight:bold; '>swap</span>(a, b);
+	            
+	        }
+	        
+	        parent[b] = a;
+	        
+	        <span style='color:#7f0055; font-weight:bold; '>if</span> (tank[a] == tank[b]) {
+	        	
+	            tank[a]++;
+	            
+	        }
+	        
+	    }
+	    
+	}
+	
+	<span style='color:#7f0055; font-weight:bold; '>struct</span> Edge {
+		
+	    <span style='color:#7f0055; font-weight:bold; '>int</span> u, v, weight;
+	    
+	    <span style='color:#7f0055; font-weight:bold; '>bool</span> <span style='color:#7f0055; font-weight:bold; '>operator</span>&lt;(Edge <span style='color:#7f0055; font-weight:bold; '>const</span>&amp; other) {
+	    	
+	        <span style='color:#7f0055; font-weight:bold; '>return</span> weight &lt; other.weight;
+	        
+	    }
+	    
+	};
+	
+	<span style='color:#7f0055; font-weight:bold; '>int</span> n, d;
+	
+	<span style='color:#7f0055; font-weight:bold; '>vector</span>&lt;Edge> edges;
+	
+	<span style='color:#7f0055; font-weight:bold; '>vector</span> &lt;<span style='color:#7f0055; font-weight:bold; '>pair</span>&lt;<span style='color:#7f0055; font-weight:bold; '>int</span>, <span style='color:#7f0055; font-weight:bold; '>int</span>> > vp;
+	
+	<span style='color:#7f0055; font-weight:bold; '>void</span> solve(<span style='color:#7f0055; font-weight:bold; '>void</span>){
+		
+		<span style='color:#7f0055; font-weight:bold; '>cin</span> >> n >> d;
+		
+		<span style='color:#7f0055; font-weight:bold; '>vector</span> &lt;<span style='color:#7f0055; font-weight:bold; '>vector</span> &lt;<span style='color:#7f0055; font-weight:bold; '>int</span>> > a(n, <span style='color:#7f0055; font-weight:bold; '>vector</span> &lt;<span style='color:#7f0055; font-weight:bold; '>int</span>> (d, 0));
+		
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; n; i++){
+			
+			<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> j = 0; j &lt; d; j++){
+				
+				<span style='color:#7f0055; font-weight:bold; '>cin</span> >> a[i][j];
+				
+			}
+			
+		}
+		
+		<span style='color:#7f0055; font-weight:bold; '>int</span> cost = 0;
+		
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; n; i++){
+			
+			<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> j = i + 1; j &lt; n; j++){
+				
+				cost = 0;
+				
+				<span style='color:#7f0055; font-weight:bold; '>for</span>(<span style='color:#7f0055; font-weight:bold; '>int</span> k = 0; k &lt; d; k++){
+					
+					cost += <span style='color:#7f0055; font-weight:bold; '>abs</span>(a[i][k] - a[j][k]);
+					
+				}
+				
+				Edge O;
+				
+				O.u = i;
+				
+				O.v = j;
+				
+				O.weight = cost;
+				
+				edges.pb(O);
+				
+			}
+		}
+		
+		cost = 0;
+		
+		<span style='color:#7f0055; font-weight:bold; '>vector</span>&lt;Edge> result;
+		
+		parent.resize(n + 1);
+		
+		tank.resize(n + 1);
+		
+		<span style='color:#7f0055; font-weight:bold; '>for</span> (<span style='color:#7f0055; font-weight:bold; '>int</span> i = 0; i &lt; n; i++) {
+			
+		    make_set(i);
+		    
+		}
+		
+		<span style='color:#7f0055; font-weight:bold; '>sort</span>(edges.rbegin(), edges.rend());
+		
+		<span style='color:#7f0055; font-weight:bold; '>for</span> (Edge e : edges) {
+			
+		    <span style='color:#7f0055; font-weight:bold; '>if</span> (find_set(e.u) != find_set(e.v)) {
+		    	
+		        cost += e.weight;
+		        
+		        result.push_back(e);
+		        
+		        union_sets(e.u, e.v);
+		        
+		    }
+		}
+		
+		<span style='color:#7f0055; font-weight:bold; '>for</span>(Edge en : result){
+			
+			ans += en.weight;
+			
+		}
+		
+		<span style='color:#7f0055; font-weight:bold; '>cout</span> &lt;&lt; ans &lt;&lt; <span style='color:#7f0055; font-weight:bold; '>endl</span>;
+		
+	}
+</pre>
+</div>
