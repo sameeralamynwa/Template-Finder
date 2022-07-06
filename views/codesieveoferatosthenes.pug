@@ -1,0 +1,23 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 Sieve of Eratosthenes
+  include sourcesieveoferatosthenes.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://www.spoj.com/problems/TDPRIMES/') SPOJ - Printing Some Primes]
+        li #[a(href = 'https://www.spoj.com/problems/HS08PAUL/') SPOJ - A Conjecture of Paul Erdos]
+        li #[a(href = 'https://www.spoj.com/problems/VECTAR8/') SPOJ - Primal Fear]
+        li #[a(href = 'http://codeforces.com/contest/26/problem/A') Codeforces - Almost Prime]
+        li #[a(href = 'http://codeforces.com/contest/776/problem/B') Codeforces - Sherlock and his Girlfriend]
+        li #[a(href = 'http://www.spoj.com/problems/NGIRL/') SPOJ - Namit in Trouble]
+        li #[a(href = 'http://www.spoj.com/problems/DCEPC505/') SPOJ - Bazinga!]
+        li #[a(href = 'https://www.hackerrank.com/contests/projecteuler/challenges/euler134') Project Euler - Prime Pair Connection]

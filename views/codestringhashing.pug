@@ -1,0 +1,26 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 String Hashing
+  include sourcestringhashing.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://codeforces.com/contest/271/problem/D') Codeforces - Good Substrings]
+        li #[a(href = 'https://www.spoj.com/problems/NHAY/') SPOJ - A Needle in the Haystack]
+        li #[a(href = 'https://codeforces.com/problemset/problem/154/C') Codeforces - Double Profiles]
+        li #[a(href = 'https://codeforces.com/problemset/problem/126/B') Codeforces - Password]
+        li #[a(href = 'https://www.hackerrank.com/contests/womens-codesprint-5/challenges/gift-boxes') HackerRank - Gift Boxes]
+        li #[a(href = 'https://codeforces.com/contest/19/problem/C') Codeforces - Deletion of Repeats]
+        li #[a(href = 'https://codeforces.com/contest/7/problem/D') Codeforces - Palindrome Degree]
+        li #[a(href = 'https://www.spoj.com/problems/CF25E/') SPOJ - Test]
+        li #[a(href = 'https://codeforces.com/contest/835/problem/D') Codeforces - Palindromic Characteristics]
+        li #[a(href = 'https://codeforces.com/contest/825/problem/F') Codeforces - String Compression]
+        li #[a(href = 'https://codeforces.com/contest/752/problem/D') Codeforces - Santa Claus and a Palindrome]

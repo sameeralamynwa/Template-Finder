@@ -1,0 +1,23 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 Binomial Coefficients
+  include sourcebinomialcoefficients.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://www.codechef.com/LTIME24/problems/NWAYS/') CodeChef - Number of ways]
+        li #[a(href = 'http://codeforces.com/problemset/problem/407/C') Codeforces - Curious Array]
+        li #[a(href = 'http://www.lightoj.com/volume_showproblem.php?problem=1419') LightOJ - Necklaces]
+        li #[a(href = 'https://www.hackerearth.com/problem/algorithm/binomial-coefficient-1/description/') HackerEarth - Binomial Coefficient]
+        li #[a(href = 'www.spoj.com/problems/ADATEAMS/') SPOJ - Ada and Teams]
+        li #[a(href = 'https://devskill.com/CodingProblems/ViewProblem/61') DevSkill - Drive In Grid]
+        li #[a(href = 'https://www.spoj.com/problems/UCV2013E/') SPOJ - Greedy Walking]
+        li #[a(href = 'https://www.codechef.com/MAY17/problems/SANDWICH/') CodeChef - Long Sandwich]

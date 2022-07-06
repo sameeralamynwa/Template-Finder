@@ -8,7 +8,11 @@
 }
 
 h1{
+<<<<<<< HEAD
     font-size: 28px;
+=======
+    font-size: 24px;
+>>>>>>> master
     text-align: center;
     margin: 25px auto;
 }
@@ -17,9 +21,15 @@ h1{
     margin: 7px;
     background-color: rgb(255, 255, 255);
     height: 50px;
+<<<<<<< HEAD
     padding: 3px 54px;
     display: flex;
     width: 1300px;
+=======
+    padding: 3px 25px;
+    display: flex;
+    width: 100%;
+>>>>>>> master
 }
 
 #navbar li a:hover{
@@ -28,6 +38,7 @@ h1{
 
 #navbar li{
     list-style: none;
+<<<<<<< HEAD
     padding-right: 50px;
 }
 
@@ -35,6 +46,15 @@ h1{
     width: 40%;
     display: flex;
     padding-top: 10px;
+=======
+    margin: 0px 20px;
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+>>>>>>> master
 }
 
 #logo{
@@ -47,7 +67,11 @@ h1{
 }
 
 #logo img{
+<<<<<<< HEAD
     height: 32px;
+=======
+    height: 9vh;
+>>>>>>> master
 }
 
 #navbar li a{
@@ -58,10 +82,42 @@ h1{
     padding-bottom: 12px;
 }
 
+<<<<<<< HEAD
+=======
+#first, .general, h1{
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; Keeps the content on a single line
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    animation: 
+      typing 7.5s steps(40, end),
+      blink-caret .95s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+  }
+
+.wrapintro{
+    height: 100vh;
+    background-color: orangered;
+}
+
+>>>>>>> master
 #introsection{
     color: white;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     justify-content: center;
     padding-top: 20px;
     height: 725px;
@@ -81,6 +137,15 @@ div#second {
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
+=======
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    background: center / cover no-repeat url("/static/bg.jpg");
+    font-size: 25px;
+    background-color: #231c23;
+    height: 100%;
+>>>>>>> master
 }
 
 .introclass{
@@ -88,6 +153,7 @@ div#second {
 }
 
 #below{
+<<<<<<< HEAD
     background-color: white;
     margin: 35px;
 }
@@ -102,6 +168,15 @@ div#second {
 
 #memberssection{
     height: 150px;
+=======
+    display: flex;
+    background-color: white;
+    margin: 8vh;
+}
+
+#memberssection{
+
+>>>>>>> master
 }
 
 .connect{
@@ -109,12 +184,27 @@ div#second {
     margin-right: auto;
 }
 
+<<<<<<< HEAD
 #footer, #looter{
     display: flex;
     align-items: center;
     height: 30px;
     background-color: #231c23;
     color: white;
+=======
+#footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #231c23;
+    color: white;
+    gap: 4px;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    /* z-index: -1; */
+    margin-top: 5vh;
+>>>>>>> master
 }
 
 #membersection h2{
@@ -132,12 +222,21 @@ div#second {
 }
 
 .card{
+<<<<<<< HEAD
     display: inline-block;
+=======
+    display: flex;
+    flex-direction: column;
+>>>>>>> master
     border: 2px solid black;
     border-radius: 10px;
     width: 30%;
     margin: 23px 20px;
+<<<<<<< HEAD
     height: 209px;
+=======
+    height: 30vh;
+>>>>>>> master
     background-color: white;
 }
 .card h3{
@@ -148,6 +247,10 @@ div#second {
 }
 
 .card-box{
+<<<<<<< HEAD
+=======
+    height: 80%;
+>>>>>>> master
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -160,6 +263,7 @@ div#second {
 }
 
 .card-img img{
+<<<<<<< HEAD
     height: inherit; 
 }
 
@@ -170,6 +274,19 @@ div#second {
 .card-content p{
     font-size: 17px;
     font-family: cursive;
+=======
+    height: 80%; 
+}
+
+.card-content{
+    /* padding: 0 10px; */
+}
+
+.card-content p{
+    font-size: 18px;
+    font-family: cursive;
+    font-weight: 1000;
+>>>>>>> master
 }
 
 .container {
@@ -178,10 +295,13 @@ div#second {
     flex-direction: column;
     align-items: center;
     border: 2px solid #231c23;
+<<<<<<< HEAD
     margin-left: 365px;
     padding: 30px;
     margin-bottom: 400px;
     margin-top: 50px;
+=======
+>>>>>>> master
 }
 
 .container li a{
@@ -192,15 +312,27 @@ div#second {
     margin-bottom: 15px;
     font-size: 20px;
     border: 2px solid black;
+<<<<<<< HEAD
     width: 350px;
     height: 35px;
     text-align: center;
     border-radius: 10px;
     margin-bottom: 20px;
+=======
+    width: 60%;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 15px auto;
+>>>>>>> master
 }
 
 .all{
     display: flex;
+<<<<<<< HEAD
+=======
+    width: 100%;
+>>>>>>> master
 }
 
 input,
@@ -216,12 +348,26 @@ ul{
 }
 
 .register {
+<<<<<<< HEAD
     margin-left: 500px;
+=======
+    /* margin-left: 500px; */
+>>>>>>> master
     text-decoration: none;
     list-style: none;
     display: flex;
 }
 
+<<<<<<< HEAD
+=======
+.navmain{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+>>>>>>> master
 .logged{
     margin-right: auto;
     margin-left: auto;

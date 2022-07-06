@@ -1,12 +1,19 @@
 doctype html 
 html 
+<<<<<<< HEAD
     head 
         title Template Finder 
+=======
+    head
+        link(rel='icon' href='/static/titlelogokid.png' type='image/icon type')
+        title Template Finder #{title}
+>>>>>>> master
         block scripts 
         block style
     body
         div.all
             nav#navbar
+<<<<<<< HEAD
                 ul
                     div#logo
                         img(src="/static/logo.png")
@@ -24,10 +31,36 @@ html
                             a(href = '/') #{handle}
                         li  
                             a(href = '/logout') Log&nbsp;Out
+=======
+                div.navmain
+                    div.navfirst
+                        ul
+                            div#logo
+                                img(src="/static/logo5.png")
+                            li #[a(href = '/') Home]
+                            li #[a(href = '/about') About]
+                            li #[a(href = '/explore') Explore]
+                            li #[a(href = '/contribute') Contribute]
+                    div.navsecond
+                        if !isAuth
+                            ul.register
+                                li #[a(href = '/register') Register]
+                                li #[a(href = '/login') Login]
+                        if isAuth
+                            div.registerdiv
+                                ul.register
+                                    li 
+                                        a(href = '/') #{handle}
+                                    li  
+                                        a(href = '/logout') Log&nbsp;Out
+>>>>>>> master
         block content
     footer#footer 
         div#fourth   
         |   Template Finder (c) Copyright 2021-2023 | All rights reserved
+<<<<<<< HEAD
     div#looter 
+=======
+>>>>>>> master
         div#fifth
         |    Server time : #{moment().format()}                     

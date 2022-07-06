@@ -13,6 +13,7 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session);
 
 
+<<<<<<< HEAD
 /* mongoose.connect('mongodb://localhost/TemplateFinderDatabase', {useNewUrlParser: true}); */
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
@@ -20,12 +21,26 @@ const port = process.env.PORT || 5000;
 
 app.use('/static', express.static('static'));
 app.use(express.urlencoded());
+=======
+// mongoose.connect('mongodb://localhost/TemplateFinderDatabase', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+
+const port = process.env.PORT || 5000;
+// const port = 5000;
+
+app.use('/static', express.static('static'));
+app.use(express.urlencoded({ extended: true }));
+>>>>>>> master
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 const store = new MongoDBSession({
+<<<<<<< HEAD
     /* uri: 'mongodb://localhost/TemplateFinderDatabase', */
+=======
+    // uri: 'mongodb://localhost/TemplateFinderDatabase',
+>>>>>>> master
     uri: process.env.MONGODB_URI,
     collection: 'mysessions'
 });
@@ -66,7 +81,12 @@ let RegistrationSchemaModel = mongoose.model('RegistrationTable', RegistrationSc
 app.get('/', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Search for implementations of numerous algorithms and data structures'
+>>>>>>> master
     }
     res.status(200).render('home.pug', params);
 });
@@ -74,7 +94,12 @@ app.get('/', function (req, res) {
 app.get('/contribute', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Contribute'
+>>>>>>> master
     }
     res.status(200).render('contribute.pug', params);
 });
@@ -82,7 +107,12 @@ app.get('/contribute', function (req, res) {
 app.get('/login', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Login'
+>>>>>>> master
     }
     res.status(200).render('login.pug', params);
 });
@@ -106,7 +136,12 @@ app.post('/contribute', function (req, res) {
 app.get('/register', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Register'
+>>>>>>> master
     }
     res.status(200).render('registrationform.pug', params);
 });
@@ -200,7 +235,12 @@ app.get('/logout', function(req, res) {
 app.get('/about', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- About'
+>>>>>>> master
     }
     res.status(200).render('about.pug', params);
 });
@@ -208,23 +248,169 @@ app.get('/about', function (req, res) {
 app.get('/explore', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Explore'
+>>>>>>> master
     }
     res.status(200).render('explore.pug', params);
 });
 
+<<<<<<< HEAD
 app.get('/explore/minimumandmaximumspanningtree', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
         handle: req.session.handle
     }
     res.status(200).render('algospanningtree.pug', params);
+=======
+app.get('/explore/binary-exponentiation', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Binary Exponentiation'
+    }
+    res.status(200).render('codebinaryexponentiation.pug', params);
+})
+
+app.get('/explore/euclid-algorithm', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Euclid Algorithm'
+    }
+    res.status(200).render('codeeuclidalgorithm.pug', params);
+})
+
+app.get('/explore/sieve-of-eratosthenes', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Sieve of Eratosthenes'
+    }
+    res.status(200).render('codesieveoferatosthenes.pug', params);
+})
+
+app.get('/explore/prime-sieve-linear', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Linear Sieve'
+    }
+    res.status(200).render('codeprimesievelinear.pug', params);
+})
+
+app.get('/explore/factorization', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Factorization'
+    }
+    res.status(200).render('codefactorization.pug', params);
+})
+
+app.get('/explore/binary-tree-inorder', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Binary Tree Inorder Traversal'
+    }
+    res.status(200).render('codebinarytreeinorder.pug', params);
+})
+
+app.get('/explore/binary-tree-preorder', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Binary Tree Preorder Traversal'
+    }
+    res.status(200).render('codebinarytreepreorder.pug', params);
+})
+
+app.get('/explore/design-hashset', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Hashset Implementation'
+    }
+    res.status(200).render('codedesignhashset.pug', params);
+})
+
+app.get('/explore/stack-using-queue', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Stack using Queue'
+    }
+    res.status(200).render('codestackusingqueue.pug', params);
+})
+
+app.get('/explore/string-hashing', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- String Hashing'
+    }
+    res.status(200).render('codestringhashing.pug', params);
+})
+
+app.get('/explore/rabin-karp', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Rabin-Karp for String Matching'
+    }
+    res.status(200).render('coderabinkarp.pug', params);
+})
+
+app.get('/explore/expression-parsing', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Expression Parsing'
+    }
+    res.status(200).render('codeexpressionparsing.pug', params);
+})
+
+app.get('/explore/binomial-coefficients', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Binomial Coefficients'
+    }
+    res.status(200).render('codebinomialcoefficients.pug', params);
+})
+
+app.get('/explore/bracket-sequences', function(req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Bracket Sequences'
+    }
+    res.status(200).render('codebracketsequences.pug', params);
+})
+
+app.get('/explore/minimumandmaximumspanningtree', function (req, res) {
+    const params = {
+        isAuth: req.session.isAuth,
+        handle: req.session.handle,
+        title: '- Minimum and Maximum Spanning Tree'
+    }
+    res.status(200).render('codespanningtree.pug', params);
+>>>>>>> master
 });
 
 app.get('/explore/dijkstraalgorithmwithmultipleedges', function (req, res) {
     const params = {
         isAuth: req.session.isAuth,
+<<<<<<< HEAD
         handle: req.session.handle
+=======
+        handle: req.session.handle,
+        title: '- Dijkstra Algirithm with Multiple Edges'
+>>>>>>> master
     }
     res.status(200).render('algodijkstra.pug', params);
 });

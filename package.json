@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "cew",
   "version": "1.0.0",
   "description": "",
@@ -20,6 +21,24 @@
     "moment": "^2.29.1",
     "mongoose": "^6.1.4",
     "popups": "^1.1.3",
+=======
+  "name": "templatefinder",
+  "version": "1.0.0",
+  "description": "I completed this project using HTML5, CSS3, JavaScript, Pug, Node.js, Express, Mongoose, and MongoDB.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sameer Alam",
+  "license": "ISC",
+  "dependencies": {
+    "connect-mongodb-session": "^3.1.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "moment": "^2.29.3",
+    "mongoose": "^6.1.4",
+    "nodemon": "^2.0.16",
+>>>>>>> master
     "pug": "^3.0.2"
   }
 }

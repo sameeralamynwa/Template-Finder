@@ -1,0 +1,19 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 Factorization
+  include sourcefactorization.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://www.spoj.com/problems/FACT0/') SPOJ - Integer Factorization (15 digits)]
+        li #[a(href = 'https://www.spoj.com/problems/FACT1/') SPOJ - Integer Factorization (20 digits)]
+        li #[a(href = 'https://www.spoj.com/problems/FACT2/') SPOJ - Integer Factorization (29 digits)]
+        li #[a(href = 'https://codeforces.com/gym/100753') Codeforces - Divisions]

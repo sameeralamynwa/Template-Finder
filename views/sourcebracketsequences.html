@@ -1,0 +1,107 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+// check if sequence is balanced input contains '{', '}', '[', ']', '(', ')' 
+bool isValid(string s) {
+    stack< char> paren;
+    for (char& c : s) {
+        switch (c) {
+            case '(': 
+            case '{': 
+            case '[': paren.push(c); break;
+            case ')': if (paren.empty() || paren.top()!='(') return false; else paren.pop(); break;
+            case '}': if (paren.empty() || paren.top()!='{') return false; else paren.pop(); break;
+            case ']': if (paren.empty() || paren.top()!='[') return false; else paren.pop(); break;
+            default: ;
+        }
+    }
+    return parent.empty();
+}
+
+// finding the lexicographical next balanced sequence
+bool next_balanced_sequence(string & s) {
+    int n = s.size();
+    int depth = 0;
+    for (int i = n - 1; i >= 0; i--) {
+        if (s[i] == '(')
+            depth--;
+        else
+            depth++;
+
+        if (s[i] == '(' && depth > 0) {
+            depth--;
+            int open = (n - i - 1 - depth) / 2;
+            int close = n - i - 1 - open;
+            string next = s.substr(0, i) + ')' + string(open, '(') + string(close, ')');
+            s.swap(next);
+            return true;
+        }
+    }
+    return false;
+}
+
+// finding the kth balanced sequence
+string kth_balanced(int n, int k) {
+    vector< vector< int>> d(2*n+1, vector< int>(n+1, 0));
+    d[0][0] = 1;
+    for (int i = 1; i <= 2*n; i++) {
+        d[i][0] = d[i-1][1];
+        for (int j = 1; j < n; j++)
+            d[i][j] = d[i-1][j-1] + d[i-1][j+1];
+        d[i][n] = d[i-1][n-1];
+    }
+
+    string ans;
+    int depth = 0;
+    for (int i = 0; i < 2*n; i++) {
+        if (depth + 1 <= n && d[2*n-i-1][depth+1] >= k) {
+            ans += '(';
+            depth++;
+        } else {
+            ans += ')';
+            if (depth + 1 <= n)
+                k -= d[2*n-i-1][depth+1];
+            depth--;
+        }
+    }
+    return ans;
+}
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>
