@@ -1,0 +1,80 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+    class MyHashSet {
+    public:
+        
+        const int size = 1e3;
+        vector <vector <int> > container;
+        
+        MyHashSet() {
+            container.resize(size);
+        }
+        
+        int hashedValue(int key){
+            return ((long long) key * key * key + (long long) key * key + key) % size;
+        }
+        
+        void add(int key) {
+            int index = hashedValue(key);
+            if(search(key) == container[index].end()){
+                container[index].push_back(key);
+            }
+        }
+        
+        vector <int> :: iterator search(int key){
+            int index = hashedValue(key);
+            return find(container[index].begin(), container[index].end(), key);
+        }
+        
+        void remove(int key) {
+            int index = hashedValue(key);
+            if(search(key) != container[index].end()){
+                container[index].erase(search(key));
+            }
+        }
+        
+        bool contains(int key) {
+            int index = hashedValue(key);
+            return search(key) != container[index].end();
+        }
+    };
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>

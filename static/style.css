@@ -8,7 +8,7 @@
 }
 
 h1{
-    font-size: 28px;
+    font-size: 24px;
     text-align: center;
     margin: 25px auto;
 }
@@ -47,7 +47,7 @@ h1{
 }
 
 #logo img{
-    height: 32px;
+    height: 9vh;
 }
 
 #navbar li a{
@@ -58,15 +58,15 @@ h1{
     padding-bottom: 12px;
 }
 
-#first{
+#first, .general, h1{
     font-family: 'Ubuntu', sans-serif;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */
     white-space: nowrap; Keeps the content on a single line
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     animation: 
-      typing 3.5s steps(40, end),
-      blink-caret .75s step-end infinite;
+      typing 7.5s steps(40, end),
+      blink-caret .95s step-end infinite;
 }
 
 /* The typing effect */
@@ -78,7 +78,7 @@ h1{
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange; }
+    50% { border-color: white; }
   }
 
 .wrapintro{
@@ -125,10 +125,11 @@ h1{
     background-color: #231c23;
     color: white;
     gap: 4px;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
-    z-index: -1;
+    /* z-index: -1; */
+    margin-top: 5vh;
 }
 
 #membersection h2{
@@ -195,10 +196,6 @@ h1{
     flex-direction: column;
     align-items: center;
     border: 2px solid #231c23;
-    margin-left: 365px;
-    padding: 30px;
-    margin-bottom: 400px;
-    margin-top: 50px;
 }
 
 .container li a{
@@ -209,11 +206,11 @@ h1{
     margin-bottom: 15px;
     font-size: 20px;
     border: 2px solid black;
-    width: 350px;
-    height: 35px;
+    width: 60%;
+    height: 40px;
     text-align: center;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 15px auto;
 }
 
 .all{

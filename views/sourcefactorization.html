@@ -1,0 +1,73 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+    vector<long long> trial_division1(long long n) {
+        vector<long long> factorization;
+        for (long long d = 2; d * d <= n; d++) {
+            while (n % d == 0) {
+                factorization.push_back(d);
+                n /= d;
+            }
+        }
+        if (n > 1)
+            factorization.push_back(n);  // n is a prime number
+        return factorization;
+    }   
+
+    // skipping even numbers when n is odd leaves us with only 50% of numbers to check
+    vector< long long> trial_division2(long long n) {
+        vector< long long> factorization;
+        while (n % 2 == 0) {
+            factorization.push_back(2);
+            n /= 2;
+        }
+        for (long long d = 3; d * d <= n; d += 2) {
+            while (n % d == 0) {
+                factorization.push_back(d);
+                n /= d;
+            }
+        }
+        if (n > 1)
+            factorization.push_back(n);
+        return factorization;
+    }
+    
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>

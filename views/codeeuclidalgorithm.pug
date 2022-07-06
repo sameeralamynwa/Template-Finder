@@ -1,0 +1,17 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 Euclid Algorithm
+  include sourceeuclidalgorithm.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://www.codechef.com/problems/FLOW016') Codechef - GCD and LCM]
+        li #[a(href = 'https://practice.geeksforgeeks.org/problems/extended-euclidean-algorithm3848/1') GeeksforGeeks - Extended Euclidean Algorithm]

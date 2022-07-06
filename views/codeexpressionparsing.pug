@@ -1,0 +1,21 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 Expression Parsing
+  include sourceexpressionparsing.html
+  h1 Here are some follow-up problems and ideas
+  .problems
+    ol
+        li #[a(href = 'https://leetcode.com/problems/evaluate-reverse-polish-notation/') LeetCode - Evaluate Reverse Polish Notation]
+        li #[a(href = 'https://www.geeksforgeeks.org/evaluation-prefix-expressions/') GeeksforGeeks - Evaluation of Prefix Expressions]
+        li #[a(href = 'https://leetcode.com/problems/basic-calculator/') LeetCode - Basic Calculator]
+        li #[a(href = 'https://www.geeksforgeeks.org/arithmetic-expression-evalution/') GeeksforGeeks - Arithmetic Expression Evaluation]
+        li #[a(href = 'https://leetcode.com/problems/basic-calculator-ii/') LeetCode - Basic Calculator II]
+        li #[a(href = 'https://leetcode.com/problems/expression-add-operators/') LeetCode - Expression Add Operators]

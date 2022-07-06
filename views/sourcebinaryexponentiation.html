@@ -1,0 +1,51 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+long long binpow(long long a, long long b) {
+    if (b == 0)
+        return 1;
+    long long res = binpow(a, b / 2);
+    if (b % 2)
+        return res * res * a;
+    else
+        return res * res;
+}
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>

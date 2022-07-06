@@ -1,0 +1,82 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+// be careful of integer-overflow
+int C(int n, int k) {
+    int res = 1;
+    for (int i = n - k + 1; i <= n; ++i)
+        res *= i;
+    for (int i = 2; i <= k; ++i)
+        res /= i;
+    return res;
+}
+
+// improved implementation
+int C(int n, int k) {
+    double res = 1;
+    for (int i = 1; i <= k; ++i)
+        res = res * (n - k + i) / i;
+    return (int)(res + 0.01);
+}
+
+// using dynamic programming also called as pascal's triangle
+const int maxn = 1e3;
+int C[maxn + 1][maxn + 1];
+C[0][0] = 1;
+for (int n = 1; n <= maxn; ++n) {
+    C[n][0] = C[n][n] = 1;
+    for (int k = 1; k < n; ++k)
+        C[n][k] = C[n - 1][k - 1] + C[n - 1][k];
+}
+
+// computing binomial coefficients modulo m 
+
+// precompute factorials in O(MAXN) time
+factorial[0] = 1;
+for (int i = 1; i <= MAXN; i++) {
+    factorial[i] = factorial[i - 1] * i % m;
+}
+
+// then compute binomial coefficient in O(log m) time
+long long binomial_coefficient(int n, int k) {
+    return factorial[n] * inverse(factorial[k] * factorial[n - k] % m) % m;
+}
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>

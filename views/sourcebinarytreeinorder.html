@@ -1,0 +1,61 @@
+<div class="containercode">
+    <div class="langs">
+        <button id="cpp" class="language">C++</button> 
+        <button id="java" class="language">Java</button>
+        <button id="python" class="language">Python</button>
+    </div>
+        <div class="code-wrapper">
+<pre><code id = "code">
+    vector<int> inorderTraversal(TreeNode *root) {
+        stack <TreeNode *> traversal;
+        while(root != NULL){
+            traversal.push(root);
+            root = root -> left;
+        }
+        vector <int> order;
+        while(traversal.empty() == false){
+            TreeNode *currentNode = traversal.top();
+            traversal.pop();
+            order.push_back(currentNode -> val);
+            currentNode = currentNode -> right;
+            while(currentNode != NULL){
+                traversal.push(currentNode);
+                currentNode = currentNode -> left;
+            }
+        }
+        return order;
+    }
+</code></pre>
+            <button id = "copy-button">Copy</button>
+        </div>
+        <span id = "copy-success">Code copied :) </span>
+    </div>
+<script>
+
+let java = document.getElementById('java');
+
+java.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let python = document.getElementById('python');
+
+python.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'none';
+  alert('We are working');
+})
+
+let cpp = document.getElementById('cpp');
+
+cpp.addEventListener('click', function (){
+  let content = document.getElementById('code');
+  console.log(content)
+  content.style.display = 'block';
+})
+
+</script>
