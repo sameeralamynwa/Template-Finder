@@ -11,6 +11,6 @@ block content
         input(type="text", id='mysearchinput', onkeyup='search()', placeholder=' Search for your template ')
         ul#items
             -for(let i = 0; i < name.length; ++i){
-            li #[a(href =  `/${path[i]}`) #{name[i]}]
+            li #[a(href =  `explore/${path[i]}`) #{name[i]}]
             -}
         block content

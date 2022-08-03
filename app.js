@@ -14,11 +14,11 @@ const session = require("express-session");
 const MongoDBSession = require("connect-mongodb-session")(session);
 
 
-// mongoose.connect('mongodb://localhost/TemplateFinderDatabase', {useNewUrlParser: true});
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/TemplateFinderDatabase', {useNewUrlParser: true});
+// mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
 
-const port = process.env.PORT || 5000;
-// const port = 5000;
+// const port = process.env.PORT || 5000;
+const port = 5000;
 
 app.use('/static', express.static('static'));
 app.use(express.urlencoded({ extended: true }));
@@ -27,8 +27,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 const store = new MongoDBSession({
-    // uri: 'mongodb://localhost/TemplateFinderDatabase',
-    uri: process.env.MONGODB_URI,
+    uri: 'mongodb://localhost/TemplateFinderDatabase',
+    // uri: process.env.MONGODB_URI,
     collection: 'mysessions'
 });
 
