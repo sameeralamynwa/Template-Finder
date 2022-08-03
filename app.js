@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const app = express()
 app.locals.moment = require('moment');
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const res = require("express/lib/response");
@@ -61,8 +62,17 @@ let RegistrationSchema = new mongoose.Schema({
     password: String,
 });
 
+let TopicSchema = new mongoose.Schema({
+    name: String,
+    sourcecode: String,
+    problem: [],
+    problemlink: []
+});
+
 let ContributeSchemaModel = mongoose.model('ContributionTable', ContributeSchema);
 let RegistrationSchemaModel = mongoose.model('RegistrationTable', RegistrationSchema);
+let TopicSchemaModel = mongoose.model('TopicSchema', TopicSchema);
+
 
 app.get('/', function (req, res) {
     const params = {
@@ -116,7 +126,7 @@ app.get('/register', function (req, res) {
     res.status(200).render('registrationform.pug', params);
 });
 
-app.post('/register', function (req, res) {
+app.post('/register', async function (req, res) {
     let {name, handle, email, password} = req.body;
     name = name.trim();
     handle = handle.trim();
@@ -126,6 +136,9 @@ app.post('/register', function (req, res) {
     if(name == "" || handle == "" || email == "" || password == ""){
         return res.status(404).end("Empty input fields");
     }
+
+    const salt = await bcrypt.genSalt(10);
+    password = await bcrypt.hash(password, salt);
 
     RegistrationSchemaModel.find({email}).then(result => {
         if(result.length){
@@ -168,29 +181,25 @@ app.post('/register', function (req, res) {
 
 });
 
-app.post('/login', function (req, res) {
-    let {handle, password} = req.body;
+app.post('/login', async function (req, res) {
     console.log(req.body);
-    RegistrationSchemaModel.find({handle}).then(result => {
-        if(result.length){
-            const databasePassword = result[0].password;
-            if(databasePassword == password){
+    const user = await RegistrationSchemaModel.find({handle: req.body.handle});
+    console.log(user);
+    if(user.length){
+        bcrypt.compare(req.body.password, user[0].password, function(err, result) {
+            if (result) {
                 req.session.isAuth = true;
-                req.session.handle = handle;
-                res.status(200).render('loginsuccess.pug', {isAuth: true, handle: handle});
+                req.session.handle = req.body.handle;
+                res.status(200).render('loginsuccess.pug', {isAuth: true, handle: req.body.handle});
             }
-            else{
+            else {
                 res.status(404).end("Incorrect password.");
             }
-        }
-        else{
-            res.status(404).end("No such handle exists.");
-        }
-    }).catch(error => {
-        console.log(error);
-        res.status(404).end("An error occured while fetching the information for existing users.");
-    });
-
+          });
+    }
+    else{
+        res.status(404).end("No such handle exists.");
+    }
 });
 
 app.get('/logout', function(req, res) {
@@ -211,14 +220,73 @@ app.get('/about', function (req, res) {
     res.status(200).render('about.pug', params);
 });
 
-app.get('/explore', function (req, res) {
-    const params = {
-        isAuth: req.session.isAuth,
-        handle: req.session.handle,
-        title: '- Explore'
+function convertToPath(word){
+    word = word.toLowerCase();
+    word = word.replace(" ", "-");
+    return word;
+}
+
+function convertToName(word){
+    word = word.replace("-", " ");
+    const list = word.split(" ");
+    for (var i = 0; i < list.length; i++) {
+        list[i] = list[i].charAt(0).toUpperCase() + list[i].slice(1);
     }
-    res.status(200).render('explore.pug', params);
+    return list.join(" ");
+}
+
+app.get('/explore', function (req, res) {
+    let name = []
+    let path = []
+    TopicSchemaModel.find().then(result => {
+        if(result.length){
+            for(let i = 0; i < result.length; ++i){
+                name.push(result[i].name);
+                path.push(convertToPath(result[i].name));
+            }
+        }
+        else{
+            res.status(404).end("No topics added");
+        }
+        let params = {
+            isAuth: req.session.isAuth,
+            handle: req.session.handle,
+            title: '- Explore',
+            name: name,
+            path: path
+        }
+        res.status(200).render('explore.pug', params);
+    }).catch(error => {
+        console.log(error);
+        res.status(404).end("An error occured while fetching the information for all topics.");
+    });
 });
+
+app.get('/explore/:path', function(req, res) {
+    let path = req.params.path;
+    let name = convertToName(path);
+    TopicSchemaModel.find({name}).then(result => {
+        if(result.length == 0){
+            res.status(404).end("No such topic");
+        }
+        let content = {
+            code: result[0].sourcecode
+        }
+        let params = {
+            isAuth: req.session.isAuth,
+            handle: req.session.handle,
+            sourcecode: content,
+            title: `- ${result[0].name}`,
+            name: name,
+            problem: result[0].problem,
+            problemlink: result[0].problemlink
+        }
+        res.status(200).render('codetemplate.pug', params);
+    }).catch(error => {
+        console.log(error);
+        res.status(404).end("An error occured while fetching the information for existing topic.");
+    });
+})
 
 app.get('/explore/binary-exponentiation', function(req, res) {
     const params = {

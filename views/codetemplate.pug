@@ -1,0 +1,27 @@
+extends base.pug
+block scripts 
+    script(src='/static/index.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
+block style 
+    style
+        include ../static/style.css
+        include ../static/code.css
+        include ../highlightjs/dracula.css
+block content
+  h1 #{name}
+  div.containercode
+      .langs
+          button#cpp.language C++
+          button#cpp.language Java
+          button#cpp.language Python
+      .code-wrapper
+          pre
+              code#code
+                  span #{sourcecode.code}
+
+  h1 Here are some follow-up problems and ideas
+  .problems
+      ol
+        -for(var i = 0; i < problem.length; i++){
+        li #[a(href =  `${problemlink[i]}`) #{problem[i]}]
+        -}

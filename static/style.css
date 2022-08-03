@@ -46,8 +46,8 @@ h1{
     margin-right: auto;
 }
 
-#logo img{
-    height: 9vh;
+.navfirst img{
+    height: 50px;
 }
 
 #navbar li a{
