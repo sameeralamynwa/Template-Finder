@@ -64,7 +64,7 @@ let RegistrationSchema = new mongoose.Schema({
 
 let TopicSchema = new mongoose.Schema({
     name: String,
-    sourcecode: String,
+    sourcecode: [],
     problem: [],
     problemlink: []
 });
@@ -269,13 +269,15 @@ app.get('/explore/:path', function(req, res) {
         if(result.length == 0){
             res.status(404).end("No such topic");
         }
-        let content = {
-            code: result[0].sourcecode
+        let codes = {
+            cpp: result[0].sourcecode[0],
+            java: result[0].sourcecode[1],
+            python: result[0].sourcecode[2]
         }
         let params = {
             isAuth: req.session.isAuth,
             handle: req.session.handle,
-            sourcecode: content,
+            sourcecode: codes,
             title: `- ${result[0].name}`,
             name: name,
             problem: result[0].problem,

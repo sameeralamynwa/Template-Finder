@@ -14,53 +14,24 @@ const search = () => {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    hljs.initHighlightingOnLoad();
+// document.addEventListener('DOMContentLoaded', () => {
+//     const codeBlock = document.getElementById('code');
+//     const copyButton = document.getElementById('copy-button');
+//     const copySuccess = document.getElementById('copy-success');
   
-    const codeBlock = document.getElementById('code');
-    const copyButton = document.getElementById('copy-button');
-    const copySuccess = document.getElementById('copy-success');
-  
-    const copyTextHandler = () => {
-      const text = codeBlock.innerText;
-      navigator.clipboard.writeText(text).then(
-        () => {
-          copySuccess.classList.add('show-message');
-          setTimeout(() => {
-            copySuccess.classList.remove('show-message');
-          }, 2500);
-        },
-        () => {
-          console.log('Error writing to the clipboard');
-        }
-      );
-    };
-    copyButton.addEventListener('click', copyTextHandler);
-  });
-
-
-let java = document.getElementById('java');
-
-java.addEventListener('click', function (){
-  let content = document.getElementById('code');
-  console.log(content)
-  content.style.display = 'none';
-  alert('We are working');
-})
-
-let python = document.getElementById('python');
-
-python.addEventListener('click', function (){
-  let content = document.getElementById('code');
-  console.log(content)
-  content.style.display = 'none';
-  alert('We are working');
-})
-
-let cpp = document.getElementById('cpp');
-
-cpp.addEventListener('click', function (){
-  let content = document.getElementById('code');
-  console.log(content)
-  content.style.display = 'block';
-})
+//     const copyTextHandler = () => {
+//       const text = codeBlock.innerText;
+//       navigator.clipboard.writeText(text).then(
+//         () => {
+//           copySuccess.classList.add('show-mes*/sage');
+//           setTimeout(() => {
+//             copySuccess.classList.remove('show-message');
+//           }, 2500);
+//         },
+//         () => {
+//           console.log('Error writing to the clipboard');
+//         }
+//       );
+//     };
+//     copyButton.addEventListener('click', copyTextHandler);
+//   });

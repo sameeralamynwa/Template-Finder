@@ -1,7 +1,4 @@
 extends base.pug
-block scripts 
-    script(src='/static/index.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js')
 block style 
     style
         include ../static/style.css
@@ -16,8 +13,7 @@ block content
           button#python.language Python
       .code-wrapper
           pre
-              code#code
-                  span #{sourcecode.code}
+              code#code #{sourcecode.cpp}
           button#copy-button Copy
       span#copy-success Code copied :)    
   h1 Here are some follow-up problems and ideas
@@ -26,3 +22,52 @@ block content
         -for(var i = 0; i < problem.length; i++){
         li #[a(href =  `${problemlink[i]}`) #{problem[i]}]
         -}
+block scripts
+    script(type='text/javascript' src = "/static/syntax-highlight.js")
+    script(type='text/javascript').
+        hljs.highlightAll();
+        setTimeout(function(){
+            let java = document.getElementById('java');
+            java.addEventListener('click', function (){
+                let content = document.getElementById('code');
+                content.innerHTML = `#{sourcecode.java}`;
+                hljs.highlightAll();
+            })
+
+            let cpp = document.getElementById('cpp');
+            cpp.addEventListener('click', function (){
+                let content = document.getElementById('code');
+                content.innerHTML = `#{sourcecode.cpp}`;
+                hljs.highlightAll();
+            })
+
+            let python = document.getElementById('python');
+            python.addEventListener('click', function (){
+                let content = document.getElementById('code');
+                content.innerHTML = `#{sourcecode.python}`;
+                hljs.highlightAll();
+            })
+        }, 2000);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const codeBlock = document.getElementById('code');
+            const copyButton = document.getElementById('copy-button');
+            const copySuccess = document.getElementById('copy-success');
+        
+            const copyTextHandler = () => {
+                const text = codeBlock.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    copySuccess.classList.add('show-mes*/sage');
+                    setTimeout(() => {
+                        copySuccess.classList.remove('show-message');
+                    }, 2500);
+                }, () => {
+                    console.log('Error writing to the clipboard');
+                    }
+                );
+            };
+            copyButton.addEventListener('click', copyTextHandler);
+        });
+
+    
+
